@@ -14,11 +14,11 @@
 html, body {
     width: 100%;
     height: 100%;
-    font-family:  "Inter", system-ui, -apple-system, sans-serif;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
     background: var(--bg-color);
     color: var(--text-main);
     -webkit-font-smoothing: antialiased;
-    overflow: hidden; /* Minimalist sites usually don't scroll if content is centered */
+    overflow: hidden;
 }
 
 main {
@@ -28,11 +28,27 @@ main {
     justify-content: center;
 }
 
+/* Animations */
+@keyframes linkReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
 .center-area {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem; /* More breathing room */
+    gap: 3rem;
+    /* Removed redundant slideUp in favor of a clean container entry if needed,
+       but letting the children (pfp, intro, links) handle the reveal looks better */
 }
 
 /* Profile Section */
@@ -48,9 +64,15 @@ main {
     height: 75px;
     border-radius: 50%;
     object-fit: cover;
-    filter: grayscale(20%); /* Optional: adds to the moody minimal vibe */
+    filter: grayscale(20%);
     transition: filter 0.3s ease;
     user-select: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px;
+    /* Adding reveal to pfp */
+    opacity: 0;
+    animation: linkReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.1s;
 }
 
 .pfp:hover {
@@ -58,95 +80,91 @@ main {
 }
 
 .intro {
-    font-size: 1.5rem; /* Smaller text is often more "minimal" than big loud text */
-    font-weight: 500;
+    font-family: "Roboto", system-ui, -apple-system, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--text-main);
-    font-family:  "roboto", system-ui, -apple-system, sans-serif;
-    font-weight: 600;
+    /* Reveal */
+    opacity: 0;
+    animation: linkReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
 }
 
 /* Navigation Links */
 .link-area {
     display: flex;
-    flex-direction: row; /* Horizontal layout feels lighter than vertical boxes */
+    flex-direction: row;
     gap: 1.5rem;
     align-items: center;
 }
 
 .exit-link {
+    position: relative;
     text-decoration: none;
     color: var(--text-dim);
+    font-family: "Overpass", sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-    font-family: "Overpass", sans-serif;
+    opacity: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+    animation: linkReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Subtle Hover Effect: No box, just color change or a tiny dot */
 .exit-link:hover {
     color: var(--text-main);
+    transform: translateY(-2px);
 }
 
-/* Optional: Adds a small dot under the link on hover */
+/* Desktop Dot */
 .exit-link::after {
     content: '';
     position: absolute;
     width: 8px;
     height: 8px;
-    bottom: -8px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%) scale(0);
     background: var(--accent);
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .exit-link:hover::after {
     transform: translateX(-50%) scale(1);
 }
 
+/* Staggering */
+.exit-link:nth-child(1) { animation-delay: 0.4s; }
+.exit-link:nth-child(2) { animation-delay: 0.5s; }
+.exit-link:nth-child(3) { animation-delay: 0.6s; }
+.exit-link:nth-child(4) { animation-delay: 0.7s; }
+
 /* Mobile Tweak */
 @media (max-width: 480px) {
     .link-area {
         flex-direction: column;
         gap: 1rem;
-        align-items: center;
     }
 
     .exit-link {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: fit-content; /* Dot stays next to text, not at screen edge */
-        position: relative;
+        width: fit-content;
     }
 
     .exit-link::after {
-        content: '';
-        position: absolute;
-
-        /* Anchor to the right of the text box */
         left: 100%;
         top: 50%;
-
-        /* This keeps it centered vertically while scaling from 0 to 1 */
-        transform: translateY(-50%) scale(0);
-        transform-origin: center;
-
+        bottom: auto;
         margin-left: 10px;
-        width: 8px;
-        height: 8px;
-        background: var(--accent);
-        border-radius: 50%;
-        transition: transform 0.2s ease-out;
-        pointer-events: none; /* Prevents the dot from being clickable/blocking */
+        transform: translateY(-50%) scale(0);
+        pointer-events: none;
     }
 
     .exit-link:active::after,
     .exit-link:hover::after {
-        /* Keep the Y centering and apply the scale */
         transform: translateY(-50%) scale(1);
     }
 }
