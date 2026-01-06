@@ -1,3 +1,3 @@
 # My Website
 
-visit: https://nexuswaslost.github.io/website_me/
+visit: https://8bitnexus.vercel.app/
