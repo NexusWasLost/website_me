@@ -1,188 +1,334 @@
-:root {
-    --bg: #080808;
-    --box-bg: #111113;
-    --border: rgba(255, 255, 255, 0.06);
-    --text-main: #ffffff;
-    --text-dim: #88888b;
-
-    /* Brand Accents */
-    --github-clr: #ffffff;
-    --linkedin-clr: #0077b5;
-    --discord-clr: #5865f2;
-    --archive-clr: #ffb01f;
-}
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-    background-color: var(--bg);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    overflow: hidden;
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #0b0d10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Slide-in Animation Logic */
-@keyframes linkReveal {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-        filter: blur(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
 }
 
-.reveal {
-    opacity: 0;
-    animation: linkReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* ── Bento Grid ── */
+.bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: appear 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
 }
 
-/* Animation Staggering */
-.profile.reveal { animation-delay: 0.1s; }
-.github.reveal  { animation-delay: 0.2s; }
-.linkedin.reveal { animation-delay: 0.3s; }
-.discord.reveal { animation-delay: 0.4s; }
-.archive.reveal { animation-delay: 0.5s; }
-.status.reveal { animation-delay: 0.6s; }
-
-.bento-grid {
-    display: grid;
-    width: 100%;
-    max-width: 500px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+/* ── Animations ── */
+@keyframes appear {
+  to { opacity: 1; transform: none; }
 }
 
-.box {
-    background: var(--box-bg);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s cubic-bezier(0.2, 1, 0.3, 1), border-color 0.3s ease;
-    position: relative;
+@keyframes tileIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-/* Profile Box - Left Aligned */
-.profile {
-    grid-column: span 2;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
+@keyframes pulseRing {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.35); }
+  50%       { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
 }
 
-.pfp {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
-    object-fit: cover;
-    border: 1px solid var(--border);
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
 }
 
-.info h1 { font-size: 1.1rem; margin-bottom: 2px; }
-.badge { font-size: 0.7rem; color: var(--text-dim); font-weight: 400; margin-left: 5px; }
-.info p { font-size: 0.85rem; color: var(--text-dim); }
-
-/* Link Boxes */
-.link {
-    text-decoration: none;
-    color: var(--text-main);
-    min-height: 140px;
+/* ── Base Tile ── */
+.tile {
+  background: #111214;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.25s ease;
+  opacity: 0;
+  animation: tileIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.link-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: auto;
+.tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.04) 50%, transparent 60%);
+  transform: translateX(-100%);
+  pointer-events: none;
 }
 
-.brand-icon {
-    font-size: 1.5rem;
-    color: var(--text-dim);
-    transition: color 0.3s ease;
+.tile:hover::after { animation: shimmer 0.5s ease forwards; }
+.tile:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
 }
 
-.link span {
-    font-weight: 600;
-    font-size: 0.95rem;
+/* ── Grid Placement ── */
+.tile-profile  { grid-column: 1 / 3; animation-delay: 0.15s; }
+.tile-status   { grid-column: 3 / 4; animation-delay: 0.20s; }
+.tile-github   { grid-column: 1 / 2; animation-delay: 0.25s; }
+.tile-discord  { grid-column: 2 / 3; animation-delay: 0.30s; }
+.tile-archive  { grid-column: 3 / 4; animation-delay: 0.35s; }
+.tile-linkedin { grid-column: 1 / 4; animation-delay: 0.40s; }
+
+/* ── Profile Tile ── */
+.tile-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
 }
 
-/* Arrow at Top Right */
-.arrow {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.2rem;
-    color: var(--text-dim);
-    opacity: 0.3;
-    transition: all 0.3s ease;
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #1e2025;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Subtle Hover Colors */
-.github:hover { border-color: rgba(255,255,255,0.2); }
-.github:hover .brand-icon { color: var(--github-clr); }
-
-.linkedin:hover { border-color: rgba(0, 119, 181, 0.3); }
-.linkedin:hover .brand-icon { color: var(--linkedin-clr); }
-
-.discord:hover { border-color: rgba(88, 101, 242, 0.3); }
-.discord:hover .brand-icon { color: var(--discord-clr); }
-
-.archive:hover { border-color: rgba(255, 176, 31, 0.3); }
-.archive:hover .brand-icon { color: var(--archive-clr); }
-
-/* Status Box */
-.status {
-    grid-column: span 2;
-    padding: 18px 24px;
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(10%);
+  transition: filter 0.3s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.status-inner {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.8rem;
-    color: var(--text-dim);
+.tile-profile:hover .avatar img {
+  filter: grayscale(0%);
+  transform: scale(1.06);
 }
 
-.dot {
-    width: 8px;
-    height: 8px;
-    background: #22c55e;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* Hover General - Applied after animation completes */
-.box:hover {
-    transform: translateY(-4px);
+.p-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f0f0f2;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
-.link:hover .arrow {
-    opacity: 1;
-    transform: translate(2px, -2px);
-    color: var(--text-main);
+.p-pronoun {
+  font-family: 'Instrument Mono', monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.28);
+  letter-spacing: 0.1em;
 }
 
-/* Mobile */
-@media (max-width: 450px) {
-    .bento-grid { grid-template-columns: 1fr; }
-    .profile, .status { grid-column: span 1; }
-    .link { min-height: 110px; }
+/* ── Status Tile ── */
+.tile-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  background: #0d1117;
+}
+
+.status-label {
+  font-family: 'Instrument Mono', monospace;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.status-dot-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.sdot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+  animation: pulseRing 2.5s ease infinite;
+}
+
+.status-val {
+  font-size: 12px;
+  font-weight: 500;
+  color: #4ade80;
+  font-family: 'Instrument Mono', monospace;
+}
+
+/* ── Link Tiles (GitHub, Discord, Archive) ── */
+.link-tile-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 80px;
+}
+
+.tile-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.link-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e8e8ec;
+  margin-top: auto;
+  padding-top: 12px;
+  letter-spacing: -0.02em;
+}
+
+.link-arrow {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate(4px, -4px);
+}
+
+.tile:hover .link-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Per-tile colours ── */
+.tile-github { background: #0d1117; }
+.tile-github .tile-icon {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tile-discord { background: #111127; }
+.tile-discord .tile-icon {
+  background: rgba(88, 101, 242, 0.15);
+  color: #818cf8;
+}
+
+.tile-archive { background: #130f0d; }
+.tile-archive .tile-icon {
+  background: rgba(239, 159, 39, 0.12);
+  color: #ef9f27;
+}
+
+/* ── LinkedIn Tile ── */
+.tile-linkedin {
+  background: #080f1f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+}
+
+.li-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.li-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(0, 119, 181, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 17px;
+  color: #60a5fa;
+}
+
+.li-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.li-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e8e8ec;
+  letter-spacing: -0.02em;
+}
+
+.li-sub {
+  font-family: 'Instrument Mono', monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.04em;
+}
+
+.li-badge {
+  font-family: 'Instrument Mono', monospace;
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: rgba(0, 119, 181, 0.12);
+  color: #60a5fa;
+  border: 0.5px solid rgba(0, 119, 181, 0.25);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Mobile ── */
+@media (max-width: 420px) {
+  .bento {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tile-profile  { grid-column: 1 / 2; }
+  .tile-status   { grid-column: 2 / 3; }
+  .tile-github   { grid-column: 1 / 2; }
+  .tile-discord  { grid-column: 2 / 3; }
+  .tile-archive  { grid-column: 1 / 2; }
+  .tile-linkedin { grid-column: 1 / 3; }
+
+  .li-badge { display: none; }
 }
