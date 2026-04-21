@@ -55,3 +55,9 @@ footer {
   transition: color 0.2s;
 }
 .back:hover { color: rgba(255,255,255,0.5); }
+
+@media (max-width: 540px) {
+  html, body {
+    justify-content: flex-start !important;
+  }
+}
