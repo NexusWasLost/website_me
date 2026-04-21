@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/CSS/shared.css">
+    <link rel="stylesheet" href="public/CSS/contact.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Instrument+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <title>Contact | Aritra</title>
+</head>
+
+<body>
+    <main>
+
+        <a href="index.html" class="back">
+            <i class="ri-arrow-left-line"></i> back
+        </a>
+
+        <h1 class="heading">lets talk</h1>
+
+        <form action="https://api.web3forms.com/submit" method="POST" id="form">
+            <input type="hidden" name="access_key" value="f83732dd-8a98-44cc-803f-33e40ec5c365">
+            <input type="hidden" name="subject" value="New message from cool.dev">
+            <input type="checkbox" name="botcheck" style="display:none;">
+
+            <input type="text" name="name" placeholder="name" required>
+            <input type="email" name="email" placeholder="email" required>
+            <textarea name="message" placeholder="message" rows="5" required></textarea>
+
+            <button type="submit" id="btn">
+                <span id="btn-text">send</span>
+                <i class="ri-send-plane-fill" id="btn-icon"></i>
+            </button>
+
+            <p id="form-status"></p>
+        </form>
+
+        <footer>
+            <span class="footer-text">8bitnexus.vercel.app</span>
+            <span class="footer-dot"></span>
+            <span class="footer-text">made with <i class="ri-heart-fill footer-heart"></i></span>
+        </footer>
+
+    </main>
+
+    <script src="public/JS/contact.js"></script>
+</body>
+
+</html>
