@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Instrument+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <title>Cool — Contact</title>
+</head>
+
+<body>
+    <main>
+
+        <a href="index.html" class="back">
+            <i class="ri-arrow-left-line"></i> back
+        </a>
+
+        <h1 class="heading">lets talk</h1>
+
+        <form action="https://api.web3forms.com/submit" method="POST" id="form">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="New message from cool.dev">
+            <input type="checkbox" name="botcheck" style="display:none;">
+
+            <input type="text" name="name" placeholder="name" required>
+            <input type="email" name="email" placeholder="email" required>
+            <textarea name="message" placeholder="message" rows="5" required></textarea>
+
+            <button type="submit" id="btn">
+                <span id="btn-text">send</span>
+                <i class="ri-send-plane-fill" id="btn-icon"></i>
+            </button>
+
+            <p id="form-status"></p>
+        </form>
+
+        <footer>
+            <span class="footer-text">cool.dev</span>
+            <span class="footer-dot"></span>
+            <span class="footer-text">made with <i class="ri-heart-fill footer-heart"></i></span>
+        </footer>
+
+    </main>
+
+    <script>
+        const form = document.getElementById('form');
+        const btn = document.getElementById('btn');
+        const btnText = document.getElementById('btn-text');
+        const btnIcon = document.getElementById('btn-icon');
+        const status = document.getElementById('form-status');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            btn.disabled = true;
+            btnText.textContent = 'sending...';
+            btnIcon.className = 'ri-loader-4-line spinning';
+
+            const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
+            const json = await res.json();
+
+            if (json.success) {
+                btnText.textContent = 'sent!';
+                btnIcon.className = 'ri-check-line';
+                btn.classList.add('success');
+                form.reset();
+            }
+            else {
+                btnText.textContent = 'send';
+                btnIcon.className = 'ri-send-plane-fill';
+                btn.disabled = false;
+                status.textContent = 'something went wrong.';
+                status.classList.add('error');
+            }
+        });
+    </script>
+</body>
+
+</html>
