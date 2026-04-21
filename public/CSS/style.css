@@ -81,6 +81,7 @@ main {
   align-items:
   center; gap: 16px;
   padding: 22px;
+  cursor: default;
 }
 
 .pfp {
@@ -106,7 +107,7 @@ main {
 .p-top { display: flex; align-items: center; gap: 8px; }
 
 .p-name {
-  font-size: 25px;
+  font-size: 28px;
   font-weight: 700;
   color: #f0f0f2;
   letter-spacing: -0.04em;
@@ -114,12 +115,14 @@ main {
 }
 
 .p-pronoun { font-family: 'Instrument Mono', monospace;
-  font-size: 11px;
+  font-size: 14px;
   color: rgba(255,255,255,0.28);
   padding-top: 3px;
+  padding: 12px 0 0 5px;
 }
 
-.p-role { font-size: 13px;
+.p-role {
+  font-size: 16px;
   color: rgba(255,255,255,0.4);
   letter-spacing: 0.01em;
   margin-top: 4px;
@@ -130,17 +133,16 @@ main {
 .tile-icon {
   width: 34px; height: 34px;
   border-radius: 8px;
-
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-.link-name { font-size: 14px; font-weight: 700; color: #e8e8ec; margin-top: auto; padding-top: 12px; letter-spacing: -0.02em; }
+.link-name { font-size: 16px; font-weight: 700; color: #e8e8ec; margin-top: auto; padding-top: 12px; letter-spacing: -0.02em; }
 
 .link-arrow {
   position: absolute; top: 14px; right: 14px;
-  font-size: 16px; color: rgba(255,255,255,0.3);
+  font-size: 20px; color: rgba(255,255,255,0.3);
   opacity: 0;
   transition: opacity 0.2s, transform 0.2s cubic-bezier(0.16,1,0.3,1);
   transform: translate(4px, -4px);
@@ -169,7 +171,9 @@ main {
 
 .tile-connect {
   background: #0d1117;
+  cursor: default;
 }
+
 .connect-layout { flex-direction: row; align-items: center; justify-content: space-between; min-height: 0; }
 .connect-content { display: flex; align-items: center; gap: 14px; }
 .tile-connect .tile-icon { background: rgba(129,140,248,0.18); color: #818cf8; }
