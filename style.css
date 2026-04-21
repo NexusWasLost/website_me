@@ -6,7 +6,7 @@
 
 html, body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background: #0b0d10;
   display: flex;
   align-items: center;
@@ -26,7 +26,6 @@ main {
 .bento {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
   gap: 12px;
   width: 100%;
   max-width: 520px;
@@ -42,8 +41,8 @@ main {
 }
 
 @keyframes tileIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 @keyframes pulseRing {
@@ -51,9 +50,9 @@ main {
   50%       { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
 }
 
-@keyframes shimmer {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
+@keyframes shine {
+  0%   { left: -75%; opacity: 1; }
+  100% { left: 125%; opacity: 1; }
 }
 
 /* ── Base Tile ── */
@@ -67,38 +66,41 @@ main {
   cursor: pointer;
   text-decoration: none;
   display: block;
-  transition:
-    border-color 0.25s ease,
-    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    background 0.25s ease;
   opacity: 0;
   animation: tileIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: border-color 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tile::after {
+/* shine sweep */
+.tile::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.04) 50%, transparent 60%);
-  transform: translateX(-100%);
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.07), transparent);
+  transform: skewX(-20deg);
   pointer-events: none;
+  opacity: 0;
 }
-
-.tile:hover::after { animation: shimmer 0.5s ease forwards; }
 
 .tile:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  transform: scale(0.99);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.97);
 }
 
-/* ── Grid Placement (UPDATED) ── */
-.tile-profile  { grid-column: 1 / 3; animation-delay: 0.15s; }
-.tile-github   { grid-column: 3 / 4; animation-delay: 0.20s; }
-.tile-linkedin { grid-column: 1 / 2; animation-delay: 0.25s; }
-.tile-discord  { grid-column: 2 / 3; animation-delay: 0.30s; }
-.tile-archive  { grid-column: 3 / 4; animation-delay: 0.35s; }
-.tile-placeholder { grid-column: 1 / 4; animation-delay: 0.40s; }
+.tile:hover::before {
+  animation: shine 0.45s ease forwards;
+}
+
+/* ── Grid Placement ── */
+.tile-profile  { grid-column: 1 / 3; grid-row: 1; animation-delay: 0.15s; }
+.tile-github   { grid-column: 3 / 4; grid-row: 1; animation-delay: 0.20s; }
+.tile-discord  { grid-column: 1 / 2; grid-row: 2; animation-delay: 0.25s; }
+.tile-linkedin { grid-column: 2 / 3; grid-row: 2; animation-delay: 0.30s; }
+.tile-archive  { grid-column: 3 / 4; grid-row: 2; animation-delay: 0.35s; }
+.tile-connect  { grid-column: 1 / 4; grid-row: 3; animation-delay: 0.40s; }
 
 /* ── Profile Tile ── */
 .tile-profile {
@@ -137,6 +139,12 @@ main {
   gap: 4px;
 }
 
+.p-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .p-name {
   font-size: 25px;
   font-weight: 700;
@@ -147,22 +155,16 @@ main {
 
 .p-pronoun {
   font-family: 'Instrument Mono', monospace;
-  font-size: 15px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.28);
-  padding: 7px 0 0 8px;
-}
-
-.p-top {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  padding-top: 3px;
 }
 
 .p-role {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.02em;
-  padding: 7px 0 0 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.01em;
+  margin-top: 4px;
 }
 
 /* ── Link Tiles ── */
@@ -182,11 +184,11 @@ main {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .link-name {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: #e8e8ec;
   margin-top: auto;
@@ -212,104 +214,83 @@ main {
 
 /* ── Per-tile colours ── */
 .tile-github { background: #0d1117; }
-.tile-github .tile-icon {
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.6);
-}
+.tile-github .tile-icon { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); }
 
 .tile-discord { background: #111127; }
-.tile-discord .tile-icon {
-  background: rgba(88, 101, 242, 0.15);
-  color: #818cf8;
-}
+.tile-discord .tile-icon { background: rgba(88,101,242,0.15); color: #818cf8; }
+
+.tile-linkedin { background: #0a1429; }
+.tile-linkedin .tile-icon { background: rgba(10,102,194,0.2); color: #70b5f9; }
 
 .tile-archive { background: #130f0d; }
-.tile-archive .tile-icon {
-  background: rgba(239, 159, 39, 0.12);
-  color: #ef9f27;
-}
+.tile-archive .tile-icon { background: rgba(239,159,39,0.12); color: #ef9f27; }
 
-/* ── LinkedIn (normalized) ── */
-.tile-linkedin {
-  background: #0a1429;
-}
-
-.tile-linkedin .tile-icon {
-    background: rgba(10, 102, 194, 0.2); /* More visible background */
-    color: #70b5f9; /* Lighter, more vibrant blue logo */
-}
-
-/* ── Placeholder ── */
-.tile-placeholder {
-  background: #080f1f;
-  min-height: 100px;
-}
-
-/* ── Connect Tile Consistency ── */
-.tile-connect {
-    grid-column: 1 / 4;
-    animation-delay: 0.40s;
-    background: #0d1117;
-}
+/* ── Connect tile ── */
+.tile-connect { background: #0d1117; }
 
 .connect-layout {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 0;
 }
 
 .connect-content {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-.tile-connect .tile-icon {
-    background: rgba(129, 140, 248, 0.18);
-    color: #818cf8;
-}
-
-.tile-connect .link-name {
-    margin-top: 0;
-    padding-top: 0;
-}
+.tile-connect .tile-icon { background: rgba(129,140,248,0.18); color: #818cf8; }
+.tile-connect .link-name { margin-top: 0; padding-top: 0; }
 
 .connect-badge {
-    font-family: 'Instrument Mono', monospace;
-    font-size: 13px;
-    color: #60a5fa;
-    background: rgba(96, 165, 250, 0.1);
-    padding: 6px 14px;
-    border-radius: 12px;
-    border: 0.5px solid rgba(96, 165, 250, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-    transition: all 0.25s ease;
+  font-family: 'Instrument Mono', monospace;
+  font-size: 12px;
+  color: #60a5fa;
+  background: rgba(96,165,250,0.1);
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 0.5px solid rgba(96,165,250,0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
-/* Hover state for the badge to match tile interaction */
 .tile-connect:hover .connect-badge {
-    background: rgba(96, 165, 250, 0.18);
-    border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(96,165,250,0.18);
+  border-color: rgba(96,165,250,0.4);
 }
 
-/* ── Mobile ── */
-@media (max-width: 420px) {
+/* ── Responsive ── */
+
+/* Tablet: 2-col, profile spans full top */
+@media (max-width: 540px) {
   .bento {
     grid-template-columns: 1fr 1fr;
+    max-width: 400px;
   }
 
-  .tile-profile  { grid-column: 1 / 2; }
-  .tile-github   { grid-column: 2 / 3; }
-  .tile-linkedin { grid-column: 1 / 2; }
-  .tile-discord  { grid-column: 2 / 3; }
-  .tile-archive  { grid-column: 1 / 2; }
-  .tile-placeholder { grid-column: 1 / 3; }
+  .tile-profile  { grid-column: 1 / 3; grid-row: 1; }
+  .tile-github   { grid-column: 1 / 2; grid-row: 2; }
+  .tile-discord  { grid-column: 2 / 3; grid-row: 2; }
+  .tile-linkedin { grid-column: 1 / 2; grid-row: 3; }
+  .tile-archive  { grid-column: 2 / 3; grid-row: 3; }
+  .tile-connect  { grid-column: 1 / 3; grid-row: 4; }
+}
 
-  .tile-connect {
-        grid-column: 1 / 3;
-    }
+/* Mobile: single col, everything stacks */
+@media (max-width: 340px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .tile-profile,
+  .tile-github,
+  .tile-discord,
+  .tile-linkedin,
+  .tile-archive,
+  .tile-connect { grid-column: 1 / 2; grid-row: auto; }
 }
