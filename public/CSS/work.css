@@ -1,3 +1,9 @@
+/* This targets the body wrapper safely only on your work page, fixing the background cutoff */
+:has(> main > .work) {
+    height: auto !important;
+    min-height: 100dvh;
+}
+
 .work {
     width: 100%;
     max-width: 560px;
@@ -41,6 +47,7 @@
     gap: 12px;
 }
 
+/* Cards & Entrance Animations */
 .card {
     width: 100%;
     background: #111214;
