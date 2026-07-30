@@ -1,4 +1,3 @@
-/* This targets the body wrapper safely only on your work page, fixing the background cutoff */
 :has(> main > .work) {
     height: auto !important;
     min-height: 100dvh;
@@ -47,10 +46,11 @@
     gap: 12px;
 }
 
-/* Cards & Entrance Animations */
 .card {
     width: 100%;
-    background: #111214;
+    background: rgba(17, 18, 20, 0.5);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
     border: 0.5px solid var(--border);
     border-radius: 20px;
     overflow: hidden;
@@ -115,7 +115,6 @@
     color: var(--muted);
 }
 
-/* Technical Icon Layout */
 .card-icon {
     width: 34px;
     height: 34px;
@@ -147,7 +146,6 @@
     color: #ef9f27;
 }
 
-/* Perfect Symmetrical Kinetic Animations */
 .card-toggle {
     font-size: 20px;
     color: rgba(255, 255, 255, 0.3);
@@ -174,7 +172,6 @@
     border-top: 0.5px solid var(--border);
 }
 
-/* Internal Content Structure */
 .card-desc {
     font-size: 14px;
     line-height: 1.6;
