@@ -36,8 +36,10 @@ main {
 }
 
 .tile {
-  background: #111214;
-  border: 0.5px solid rgba(255,255,255,0.08);
+  background: rgba(17, 18, 20, 0.5);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 0.5px solid rgba(255,255,255,0.1);
   border-radius: 20px;
   padding: 20px;
   position: relative;
@@ -76,8 +78,8 @@ main {
 
 .tile-profile {
   display: flex;
-  align-items:
-  center; gap: 16px;
+  align-items: center;
+  gap: 16px;
   padding: 22px;
   cursor: default;
 }
@@ -112,10 +114,10 @@ main {
   line-height: 1;
 }
 
-.p-pronoun { font-family: 'Instrument Mono', monospace;
+.p-pronoun {
+  font-family: 'Instrument Mono', monospace;
   font-size: 14px;
   color: rgba(255,255,255,0.28);
-  padding-top: 3px;
   padding: 12px 0 0 5px;
 }
 
@@ -147,28 +149,27 @@ main {
 }
 .tile:hover .link-arrow { opacity: 1; transform: translate(0,0); }
 
-.tile-github { background: #0d1117; }
+.tile-github { background: rgba(13, 17, 23, 0.5); }
 .tile-github .tile-icon { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); }
 
-.tile-discord { background: #111127; }
+.tile-discord { background: rgba(17, 17, 39, 0.5); }
 .tile-discord .tile-icon {
   background: rgba(88,101,242,0.15); color: #818cf8;
-
 }
 
-.tile-linkedin { background: #0a1429; }
+.tile-linkedin { background: rgba(10, 20, 41, 0.5); }
 .tile-linkedin .tile-icon {
   background: rgba(10,102,194,0.2); color: #70b5f9;
 }
 
-.tile-archive { background: #130f0d; }
+.tile-archive { background: rgba(19, 15, 13, 0.5); }
 
 .tile-archive .tile-icon {
   background: rgba(239,159,39,0.12); color: #ef9f27;
 }
 
 .tile-connect {
-  background: #0d1117;
+  background: rgba(13, 17, 23, 0.5);
   cursor: default;
 }
 
