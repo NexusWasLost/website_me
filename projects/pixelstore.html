@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <title>Pixel Store — Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/styles/shared.css">
+    <link rel="stylesheet" href="../assets/styles/project_shared.css">
+    <link rel="stylesheet" href="../assets/styles/pixel_store.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="site-header">
+            <a href="/" class="brand">
+                <i class="ri-terminal-box-line brand-title" aria-hidden="true"></i>
+                <span class="brand-title">Folio</span>
+            </a>
+
+            <nav class="site-nav" id="siteNav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#work">Work</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                <i class="ri-menu-line"></i>
+            </button>
+        </header>
+
+        <div class="menu-backdrop"></div>
+
+        <main class="project-main">
+
+            <section class="project-hero">
+                <div class="project-hero-content">
+                    <p class="project-label">Marketplace & Invoice System</p>
+
+                    <h1>Pixel Store</h1>
+
+                    <p class="project-intro">
+                        A mini marketplace showcasing a complete checkout flow with
+                        Razorpay payments, server-side verification and invoice generation.
+                    </p>
+
+                    <div class="project-actions">
+                        <a href="https://pixelstore.pages.dev/" target="_blank" class="project-button project-button-primary btn-primary">
+                            View live
+                            <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://github.com/1pixelstore" target="_blank" class="project-button project-button-secondary btn-secondary">
+                            View code
+                            <i class="ri-github-line" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <img class="project-hero-image" src="../assets/images/pxstore_marketplace.png" alt="Pixel Store marketplace">
+            </section>
+
+            <section class="project-section how-it-works">
+                <div class="section-heading">
+                    <span>01</span>
+                    <h2>How it works</h2>
+                </div>
+
+                <div class="section-content">
+                    <div class="flow-list">
+
+                        <div class="flow-item">
+                            <span class="flow-number">01</span>
+                            <div>
+                                <h3>Browse</h3>
+                                <p>
+                                    Browse products and add items to cart.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">02</span>
+                            <div>
+                                <h3>Checkout</h3>
+                                <p>
+                                    Enter customer details and create a payment order.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">03</span>
+                            <div>
+                                <h3>Payment</h3>
+                                <p>
+                                    Razorpay handles the payment interaction.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">04</span>
+                            <div>
+                                <h3>Verify</h3>
+                                <p>
+                                    The server verifies the payment before completing the order.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">05</span>
+                            <div>
+                                <h3>Invoice</h3>
+                                <p>
+                                    A print-ready invoice is generated from the completed order.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section payment-n-inv">
+                <div class="section-heading">
+                    <span>02</span>
+                    <h2>Payments & Invoice</h2>
+                </div>
+
+                <div class="section-content">
+                    <p>
+                        The server creates the payment order while the client opens
+                        Razorpay Checkout. Payment details are verified server-side
+                        before the order is marked as paid.
+                    </p>
+
+                    <p>
+                        Once payment is confirmed, Pixel Store generates its own
+                        print-ready invoice from the completed order, including
+                        purchased items, pricing and payment details.
+                    </p>
+
+                    <div class="notice">
+                        <i class="ri-information-line" aria-hidden="true"></i>
+
+                        <p>
+                            Pixel Store uses Razorpay's test environment only.
+                            No real money is involved.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-footer">
+                <div>
+                    <p class="project-label">Take a closer look</p>
+                    <h2>Pixel Store</h2>
+                </div>
+
+                <div class="project-actions">
+                    <a href="https://pixelstore.pages.dev" target="_blank" class="project-button project-button-primary btn-primary">
+                        View live
+                        <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://github.com/1pixelstore" target="_blank" class="project-button project-button-secondary btn-secondary">
+                        View code
+                        <i class="ri-github-line" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <div>
+                <p>&copy; <span id="year"></span> — 8bitnexus.pages.dev made with ❤.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="ri-github-fill"></i>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="ri-linkedin-box-fill"></i>
+                </a>
+
+                <a href="/blog" aria-label="Blog">
+                    <i class="ri-quill-pen-ai-fill"></i>
+                </a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../assets/scripts/root.js"></script>
+
+</body>
+
+</html>

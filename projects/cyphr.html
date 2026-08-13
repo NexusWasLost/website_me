@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <title>Cyphr — Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/styles/shared.css">
+    <link rel="stylesheet" href="../assets/styles/project_shared.css">
+    <link rel="stylesheet" href="../assets/styles/cyphr.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="site-header">
+            <a href="/" class="brand">
+                <i class="ri-terminal-box-line brand-title" aria-hidden="true"></i>
+                <span class="brand-title">Folio</span>
+            </a>
+
+            <nav class="site-nav" id="siteNav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#work">Work</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                <i class="ri-menu-line"></i>
+            </button>
+        </header>
+
+        <div class="menu-backdrop"></div>
+
+        <main class="project-main">
+
+            <section class="project-hero">
+                <div class="project-hero-content">
+                    <p class="project-label">Serverless API Key Storage</p>
+
+                    <h1>Cyphr</h1>
+
+                    <p class="project-intro">
+                        A serverless API key storage system built around AES-256-GCM
+                        encryption for securely storing and retrieving sensitive credentials.
+                    </p>
+
+                    <div class="project-actions">
+                        <a href="https://cyphr.pages.dev" target="_blank" class="project-button project-button-primary btn-primary">
+                            View live
+                            <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://github.com/7Cyphr" target="_blank" class="project-button project-button-secondary btn-secondary">
+                            View code
+                            <i class="ri-github-line" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <img class="project-hero-image" src="../assets/images/cyphr_dashboard.png" alt="Pixel Store marketplace">
+            </section>
+
+            <section class="project-section">
+                <div class="section-heading">
+                    <span>01</span>
+                    <h2>How it works</h2>
+                </div>
+
+                <div class="section-content">
+                    <div class="flow-list">
+
+                        <div class="flow-item">
+                            <span class="flow-number">01</span>
+                            <div>
+                                <h3>Store</h3>
+                                <p>
+                                    Submit an API key to Cyphr for secure storage.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">02</span>
+                            <div>
+                                <h3>Encrypt</h3>
+                                <p>
+                                    The secret is encrypted using AES-256-GCM before storage.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">03</span>
+                            <div>
+                                <h3>Persist</h3>
+                                <p>
+                                    The encrypted value is stored by the serverless application.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">04</span>
+                            <div>
+                                <h3>Retrieve</h3>
+                                <p>
+                                    Request the stored credential when it is needed.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">05</span>
+                            <div>
+                                <h3>Decrypt</h3>
+                                <p>
+                                    Cyphr decrypts the stored value before returning the secret.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section project-section-divided">
+                <div class="section-heading">
+                    <span>02</span>
+                    <h2>Encryption & Serverless</h2>
+                </div>
+
+                <div class="section-content">
+                    <p>
+                        Cyphr encrypts API keys using AES-256-GCM before storing them,
+                        keeping plaintext credentials out of persistent storage.
+                    </p>
+
+                    <p>
+                        The application is built around a serverless architecture, handling
+                        encryption, storage and retrieval without a traditional long-running server.
+                    </p>
+
+                    <div class="notice">
+                        <i class="ri-lock-line" aria-hidden="true"></i>
+
+                        <p>
+                            API keys are encrypted before they are persisted and only decrypted
+                            when they are explicitly retrieved.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-footer">
+                <div>
+                    <p class="project-label">Take a closer look</p>
+                    <h2>Cyphr</h2>
+                </div>
+
+                <div class="project-actions">
+                    <a href="https://cyphr.pages.dev" target="_blank" class="project-button project-button-primary btn-primary">
+                        View live
+                        <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://github.com/7Cyphr" target="_blank" class="project-button project-button-secondary btn-secondary">
+                        View code
+                        <i class="ri-github-line" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <div>
+                <p>&copy; <span id="year"></span> — 8bitnexus.pages.dev made with ❤.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="ri-github-fill"></i>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="ri-linkedin-box-fill"></i>
+                </a>
+
+                <a href="/blog" aria-label="Blog">
+                    <i class="ri-quill-pen-ai-fill"></i>
+                </a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../assets/scripts/root.js"></script>
+
+</body>
+
+</html>

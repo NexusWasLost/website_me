@@ -4,88 +4,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/CSS/shared.css">
-    <link rel="stylesheet" href="public/CSS/style.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Instrument+Mono:wght@400;500&display=swap"
-        rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/shared.css">
+    <link rel="stylesheet" href="assets/styles/hero.css">
+    <link rel="stylesheet" href="assets/styles/about.css">
+    <link rel="stylesheet" href="assets/styles/work.css">
+    <link rel="stylesheet" href="assets/styles/contact.css">
     <title>Aritra</title>
 </head>
 
 <body>
-    <main>
-        <div class="bento">
 
-            <a href="#" class="tile tile-profile">
-                <div class="pfp">
-                    <img src="assets/Luffy.jpg" alt="pfp">
+    <div class="container">
+
+        <header class="site-header">
+            <a href="/" class="brand">
+                <i class="ri-terminal-box-line brand-title" aria-hidden="true"></i>
+                <span class="brand-title">Folio</span>
+            </a>
+
+            <nav class="site-nav" id="siteNav">
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#work">Work</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                <i class="ri-menu-line"></i>
+            </button>
+        </header>
+        <div class="menu-backdrop" id="menuBackdrop"></div>
+
+        <main>
+
+            <section class="hero">
+
+                <div class="hero-meta">
+                    <span class="hero-status">
+                        <span class="hero-status-dot"></span>
+                        Backend Engineer
+                    </span>
+
+                    <span class="hero-location">
+                        <i class="ri-map-pin-line" aria-hidden="true"></i>
+                        India
+                    </span>
                 </div>
-                <div class="profile-text">
-                    <div class="p-top">
-                        <span class="p-name">Aritra</span>
-                        <span class="p-pronoun">he / him</span>
+
+                <h1>
+                    Hi, I am Aritra.
+                    <span>
+                        I build backend systems.
+                    </span>
+                </h1>
+
+                <div class="hero-bottom">
+                    <div class="hero-actions">
+                        <a href="#work" class="hero-button hero-button-primary btn-primary">
+                            Explore my work
+                            <i class="ri-arrow-down-line" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                            class="hero-button hero-button-secondary btn-secondary">
+                            GitHub
+                            <i class="ri-github-line" aria-hidden="true"></i>
+                        </a>
                     </div>
-                    <span class="p-role">Backend Engineer</span>
-                </div>
-            </a>
 
-            <a href="https://github.com/NexusWasLost" target="_blank" class="tile tile-github">
-                <i class="ri-arrow-right-up-line link-arrow"></i>
-                <div class="link-tile-inner">
-                    <div class="tile-icon"><i class="fa-brands fa-github"></i></div>
-                    <span class="link-name">GitHub</span>
-                </div>
-            </a>
-
-            <a href="/work.html" target="" class="tile tile-discord">
-                <i class="ri-arrow-right-up-line link-arrow"></i>
-                <div class="link-tile-inner">
-                    <div class="tile-icon"><i class="ri-terminal-box-line"></i></div>
-                    <span class="link-name">My Work</span>
-                </div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/aritra200/" target="_blank" class="tile tile-linkedin">
-                <i class="ri-arrow-right-up-line link-arrow"></i>
-                <div class="link-tile-inner">
-                    <div class="tile-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-                    <span class="link-name">LinkedIn</span>
-                </div>
-            </a>
-
-            <a href="https://nexus.bearblog.dev/" target="_blank" class="tile tile-archive">
-                <i class="ri-arrow-right-up-line link-arrow"></i>
-                <div class="link-tile-inner">
-                    <div class="tile-icon"><i class="ri-archive-line"></i></div>
-                    <span class="link-name">Archive</span>
-                </div>
-            </a>
-
-            <div class="tile tile-connect">
-                <div class="link-tile-inner connect-layout">
-                    <div class="connect-content">
-                        <div class="tile-icon"><i class="ri-send-plane-fill"></i></div>
-                        <span class="link-name">Let's connect</span>
+                    <div class="hero-note">
+                        <span>APIs · Systems · Software</span>
                     </div>
-                    <a class="connect-badge" href="/contact.html" style="text-decoration: none;">
-                        Connect <i class="ri-arrow-right-line"></i>
+                </div>
+
+            </section>
+
+
+            <section class="statement" id="about">
+
+                <div class="section-index">
+                    <span>01</span>
+                    <span>About</span>
+                </div>
+
+                <div class="statement-content">
+                    <p>
+                        I'm a backend engineer who builds APIs, services, and full-stack applications, working with
+                        databases, authentication, payments, and other server-side systems to build complete software.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <section class="work-section" id="work">
+                <div class="section-heading">
+                    <span class="section-index"><span>02</span></span>
+                    <h2>Selected Work</h2>
+                </div>
+
+                <div class="project-list">
+
+                    <article class="project-item">
+                        <div class="project-marker">
+                            <div class="project-logo">
+                                <img src="assets/images/pxstore.png" alt="Pixel Store">
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div>
+                                    <h3>PIXEL STORE</h3>
+                                    <p class="project-type">Marketplace & payments</p>
+                                </div>
+                            </div>
+
+                            <p class="project-description">
+                                A mini marketplace demonstrating a complete Razorpay payment flow,
+                                persistent cart, server-side verification and invoice generation.
+                            </p>
+
+                            <div class="project-stack">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>Node.js</span>
+                                <span>Express.js</span>
+                                <span>MongoDB</span>
+                                <span>Razorpay</span>
+                            </div>
+
+                            <a href="projects/pixelstore.html" class="project-link">
+                                View project
+                                <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-item">
+                        <div class="project-marker">
+                            <div class="project-logo">
+                                <img src="assets/images/cyphr.png" alt="Cyphr">
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div>
+                                    <h3>CYPHR</h3>
+                                    <p class="project-type">Developer tool</p>
+                                </div>
+                            </div>
+
+                            <p class="project-description">
+                                A secure tool for storing and managing encrypted API keys
+                                without exposing sensitive credentials.
+                            </p>
+
+                            <div class="project-stack">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>Node.js</span>
+                                <span>Hono</span>
+                                <span>PostgreSQL</span>
+                                <span>Cloudflare Workers</span>
+                            </div>
+
+                            <a href="projects/cyphr.html" class="project-link">
+                                View project
+                                <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="contact-section" id="contact">
+                <div class="section-heading">
+                    <span class="section-index"><span>03</span></span>
+                    <span>Have something to say?</span>
+                </div>
+
+                <div class="contact-content">
+                    <h2>
+                        Let's talk.
+                    </h2>
+
+                    <p>
+                        Have a project, opportunity, or just want to say hi?
+                    </p>
+
+                    <a href="/contact.html" class="contact-button btn-primary">
+                        Get in touch
+                        <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
                     </a>
                 </div>
+
+            </section>
+
+        </main>
+
+
+        <footer class="site-footer">
+
+            <div>
+                <p>&copy; <span id="year"></span> — 8bitnexus.pages.dev made with ❤.</p>
             </div>
 
-        </div>
-    </main>
+            <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="ri-github-fill"></i>
+                </a>
 
-    <footer>
-        <span class="footer-text">8bitnexus.pages.dev</span>
-        <span class="footer-dot"></span>
-        <span class="footer-text">made with <i class="ri-heart-fill footer-heart"></i></span>
-    </footer>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="ri-linkedin-box-fill"></i>
+                </a>
+
+                <a href="/blog" aria-label="Blog">
+                    <i class="ri-quill-pen-ai-fill"></i>
+                </a>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <script src="assets/scripts/root.js"></script>
+
 </body>
 
 </html>
