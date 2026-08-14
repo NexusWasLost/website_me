@@ -131,29 +131,6 @@
     margin-top: 24px;
 }
 
-.project-stack span {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px 10px;
-    border: 1px solid var(--tile-border);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--text) 4%, transparent);
-    color: var(--text-dim);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    line-height: 1;
-    transition:
-        border-color 0.25s ease,
-        color 0.25s ease,
-        background-color 0.25s ease;
-}
-
-.project-stack span:hover {
-    border-color: var(--tile-accent);
-    color: var(--tile-accent);
-    background: color-mix(in srgb, var(--tile-accent) 8%, transparent);
-}
-
 .project-link {
     display: inline-flex;
     align-items: center;

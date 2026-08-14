@@ -24,6 +24,37 @@
     color: var(--text-dim);
 }
 
+.about-stack {
+    margin-top: 32px;
+}
+
+.about-stack-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+}
+
+.about-stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.about-stack-list span {
+    padding: 8px 13px;
+    border: 1px solid var(--tile-border);
+    border-radius: 999px;
+    background: var(--tile-bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
 @media (max-width: 800px) {
     .statement {
         grid-template-columns: 1fr;
