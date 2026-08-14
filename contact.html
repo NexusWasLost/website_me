@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/shared.css">
     <link rel="stylesheet" href="assets/styles/contact_page.css">
-    <title>Nexus — Backend Engineer</title>
+    <link rel="stylesheet" href="assets/styles/footer.css">
+    <title>Contact | Aritra</title>
 </head>
 
 <body>
@@ -39,11 +40,7 @@
                 </p>
             </div>
 
-            <form
-                class="contact-form"
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                id="contactForm">
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
 
                 <input type="hidden" name="access_key" value="f83732dd-8a98-44cc-803f-33e40ec5c365">
                 <input type="hidden" name="subject" value="New message from Nexus">
@@ -51,33 +48,18 @@
 
                 <div class="form-field">
                     <label for="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        autocomplete="name"
-                        required>
+                    <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
                 </div>
 
                 <div class="form-field">
                     <label for="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="you@example.com"
-                        autocomplete="email"
+                    <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email"
                         required>
                 </div>
 
                 <div class="form-field">
                     <label for="message">Message</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        placeholder="What's on your mind?"
-                        rows="6"
+                    <textarea id="message" name="message" placeholder="What's on your mind?" rows="6"
                         required></textarea>
                 </div>
 
@@ -93,25 +75,24 @@
         </main>
 
         <footer class="site-footer">
-
-            <div>
-                <p>&copy; <span id="year"></span> — 8bitnexus.pages.dev made with ❤.</p>
+            <div class="footer-brand">
+                <p>&copy; <span id="year"></span> — <a href="/" class="footer-url">yourwebsite.com</a> made with <span
+                        class="heart">❤</span>.</p>
             </div>
 
             <div class="footer-links">
                 <a href="https://github.com/NexusWasLost" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="ri-github-fill"></i>
+                    <i class="ri-github-fill" aria-hidden="true"></i>
                 </a>
 
                 <a href="https://linkedin.com/in/aritra200" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="ri-linkedin-box-fill"></i>
+                    <i class="ri-linkedin-box-fill" aria-hidden="true"></i>
                 </a>
 
-                <a href="https://nexus.bearblog.dev" target="_blank" aria-label="Blog">
-                    <i class="ri-quill-pen-ai-fill"></i>
+                <a href="https://nexus.bearblog.dev" target="_blank" rel="noopener noreferrer" aria-label="Blog">
+                    <i class="ri-quill-pen-ai-fill" aria-hidden="true"></i>
                 </a>
             </div>
-
         </footer>
 
     </div>

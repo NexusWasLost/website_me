@@ -246,38 +246,6 @@ button {
     background: color-mix(in srgb, var(--tile-accent) 8%, transparent);
 }
 
-/* footer */
-.site-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 32px;
-    padding-bottom: 20px;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    border-top: 1px solid var(--tile-border);
-    color: var(--text-dim);
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
-    cursor: pointer;
-    transition: color 0.25s ease;
-}
-
-.footer-links a>i {
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.footer-links a:hover {
-    color: var(--tile-accent);
-}
-
 @media (max-width: 800px) {
     .site-header {
         position: relative;
