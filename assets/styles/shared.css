@@ -85,7 +85,8 @@ button {
     font-weight: 600;
 }
 
-.brand i.brand-title {
+.brand i,
+.brand-title {
     font-size: 1.4rem;
 }
 
@@ -268,7 +269,7 @@ button {
     transition: color 0.25s ease;
 }
 
-.footer-links a > i {
+.footer-links a>i {
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -281,6 +282,11 @@ button {
     .site-header {
         position: relative;
         z-index: 60;
+    }
+
+    .brand i,
+    .brand-title {
+        font-size: 1.2rem;
     }
 
     .menu-toggle {
