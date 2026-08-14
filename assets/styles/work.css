@@ -194,6 +194,11 @@
         height: 64px;
     }
 
+    .project-logo::before {
+        inset: -12px;
+        filter: blur(8px);
+    }
+
     .project-content {
         padding-bottom: 70px;
     }
