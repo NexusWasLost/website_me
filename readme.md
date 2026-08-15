@@ -1,3 +1,3 @@
 # My Website
 
-visit: https://8bitnexus.vercel.app/
+visit: https://8bitnexus.pages.dev
