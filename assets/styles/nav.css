@@ -112,34 +112,42 @@
 }
 
 /* responsive */
-@media (max-width: 1100px){
+@media (max-width: 1100px) {
     .site-header {
         top: 20px;
         margin-bottom: 45px;
     }
 }
 
-@media (min-width: 801px){
+@media (min-width: 801px) {
     .menu-backdrop {
         display: none;
     }
 }
 
 @media (max-width: 800px) {
+
+    .container {
+        padding-top: 20px;
+    }
+
     .site-header {
         top: 20px;
         margin-bottom: 45px;
-        min-height: 54px;
-        padding: 7px 9px;
+        min-height: 45px;
+        padding: 6px 8px;
     }
 
     .brand img {
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 26px;
     }
 
     .menu-toggle {
         display: inline-flex;
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
     }
 
     .site-nav {
