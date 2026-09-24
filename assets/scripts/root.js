@@ -1,5 +1,3 @@
-document.getElementById("year").textContent = new Date().getFullYear();
-
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const menuBackdrop = document.querySelector(".menu-backdrop");
