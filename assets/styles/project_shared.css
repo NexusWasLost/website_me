@@ -191,6 +191,27 @@
     margin-top: 0;
 }
 
+.project-back-link-container{
+    margin-top: 60px;
+}
+
+.project-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    transition:
+        color 0.25s ease,
+        gap 0.25s var(--ease-out);
+}
+
+.project-back-link:hover {
+    gap: 11px;
+    color: var(--tile-accent);
+}
+
 /* Responsive */
 @media (max-width: 800px) {
     .site-header {
