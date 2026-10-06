@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+
+    <title>Lumi | Aritra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/styles/shared.css">
+    <link rel="stylesheet" href="../assets/styles/nav.css">
+    <link rel="stylesheet" href="../assets/styles/project_shared.css">
+    <link rel="stylesheet" href="../assets/styles/footer.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="site-header">
+            <a href="/" class="brand">
+                <img src="../assets/images/diamond.png" alt="Home">
+            </a>
+
+            <nav class="site-nav" id="siteNav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="https://nexus.bearblog.dev" target="_blank">Blog</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                <i class="ri-menu-line"></i>
+            </button>
+        </header>
+        <div class="menu-backdrop" id="menuBackdrop"></div>
+
+        <main class="project-main">
+            <div class="project-back-link-container">
+                <a href="../../index.html#work" class="project-back-link">
+                    <i class="ri-arrow-left-line" aria-hidden="true"></i>
+                    Back to Work
+                </a>
+            </div>
+
+            <section class="project-hero">
+                <div class="project-hero-content">
+                    <p class="project-label">Windows system information</p>
+
+                    <h1>Lumi</h1>
+
+                    <p class="project-intro">
+                        A lightweight C library that retrieves system information on Windows.
+                        Supports Windows 10 and 11 and is fully compatible with C++.
+                    </p>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/NexusWasLost/Lumi/releases/latest" target="_blank" class="project-button project-button-primary btn-primary">
+                            Latest release
+                            <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://github.com/NexusWasLost/Lumi" target="_blank" class="project-button project-button-secondary btn-secondary">
+                            View code
+                            <i class="ri-github-line" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <img class="project-hero-image" src="../assets/images/lumi_console.png" alt="Lumi console">
+            </section>
+
+            <section class="project-section how-it-works">
+                <div class="section-heading">
+                    <span>01</span>
+                    <h2>How it works</h2>
+                </div>
+
+                <div class="section-content">
+                    <div class="flow-list">
+
+                        <div class="flow-item">
+                            <span class="flow-number">01</span>
+                            <div>
+                                <h3>Initialize</h3>
+                                <p>
+                                    Create a <code>Lumi</code> instance to hold system information.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">02</span>
+                            <div>
+                                <h3>Collect</h3>
+                                <p>
+                                    Call the required functions to populate the instance.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">03</span>
+                            <div>
+                                <h3>System API calls</h3>
+                                <p>
+                                    Each function uses system APIs to collect and populate information.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">04</span>
+                            <div>
+                                <h3>Access</h3>
+                                <p>
+                                    Access the collected information directly from the instance.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flow-item">
+                            <span class="flow-number">05</span>
+                            <div>
+                                <h3>Use</h3>
+                                <p>
+                                    Use the information directly in an application.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section payment-n-inv">
+                <div class="section-heading">
+                    <span>02</span>
+                    <h2>Instance and Ownership</h2>
+                </div>
+
+                <div class="section-content">
+                    <p>
+                        A <code>Lumi</code> instance is created and maintained by
+                        the user. Lumi does not create or manage any instance of its
+                        own.
+                    </p>
+
+                    <p>
+                        Heap allocated instances must be freed by the user though Lumi
+                        is designed with stack allocation in mind.
+                    </p>
+
+                    <div class="notice">
+                        <i class="ri-information-line" aria-hidden="true"></i>
+
+                        <p>
+                            Lumi uses a mix of WinAPI, Registry reads and DXGI to collect
+                            system information.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-footer">
+                <div>
+                    <p class="project-label">Take a closer look</p>
+                    <h2>Lumi</h2>
+                </div>
+
+                <div class="project-actions">
+                    <a href="https://github.com/NexusWasLost/Lumi/releases/latest" target="_blank" class="project-button project-button-primary btn-primary">
+                        Latest release
+                        <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://github.com/NexusWasLost/Lumi" target="_blank" class="project-button project-button-secondary btn-secondary">
+                        View code
+                        <i class="ri-github-line" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer"></footer>
+
+    </div>
+
+    <script src="../assets/scripts/root.js"></script>
+    <script src="../assets/scripts/footer.js"></script>
+
+</body>
+
+</html>
