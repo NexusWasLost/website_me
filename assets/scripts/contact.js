@@ -1,17 +1,16 @@
-"use strict";
 
-const form = document.getElementById("contactForm");
-const submitButton = document.getElementById("submitButton");
-const submitText = document.getElementById("submitText");
-const submitIcon = document.getElementById("submitIcon");
-const formStatus = document.getElementById("formStatus");
+const form = document.querySelector(".contact-form");
+const submitButton = form.querySelector("button[type='submit']");
+const submitIcon = submitButton.querySelector("span");
+const formStatus = form.querySelector(".form-status");
+
+const originalButtonText = submitButton.innerHTML;
 
 form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     submitButton.disabled = true;
-    submitText.textContent = "Sending...";
-    submitIcon.className = "ri-loader-4-line spinning";
+    submitButton.textContent = "Sending...";
     formStatus.textContent = "";
     formStatus.className = "form-status";
 
@@ -21,12 +20,20 @@ form.addEventListener("submit", async function (e) {
             body: new FormData(form)
         });
 
+        if (!res.ok) {
+            throw new Error("Request failed");
+        }
+
         const json = await res.json();
+        console.log(json);
 
         if (json.success) {
-            submitText.textContent = "Sent!";
-            submitIcon.className = "ri-check-line";
+            submitButton.innerHTML = 'Message sent! <span>✓</span>';
             submitButton.classList.add("success");
+
+            formStatus.textContent = "Thanks for reaching out ! I'll get back to you soon.";
+            formStatus.classList.add("success");
+
             form.reset();
         }
         else {
@@ -34,9 +41,9 @@ form.addEventListener("submit", async function (e) {
         }
     }
     catch (error) {
-        submitText.textContent = "Send message";
-        submitIcon.className = "ri-arrow-right-up-line";
+        submitButton.innerHTML = originalButtonText;
         submitButton.disabled = false;
+
         formStatus.textContent = "Something went wrong. Please try again.";
         formStatus.classList.add("error");
     }

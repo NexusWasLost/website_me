@@ -1,9 +1,4 @@
-/* Cyphr */
-
-/* .project-section-divided {
+/* Cyphr identity */
+.project-page {
+    --accent: var(--lime);
 }
-
-@media (max-width: 700px) {
-    .project-section-divided {
-    }
-} */

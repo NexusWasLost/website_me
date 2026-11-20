@@ -4,210 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../assets/favicon/site.webmanifest">
-
-    <title>Cyphr | Aritra</title>
+    <title>Cyphr — Aritra</title>
+    <meta name="description" content="Cyphr — A lightweight API key management service built by Nexus.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap"
         rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
-
     <link rel="stylesheet" href="../assets/styles/shared.css">
-    <link rel="stylesheet" href="../assets/styles/nav.css">
-    <link rel="stylesheet" href="../assets/styles/project_shared.css">
-    <link rel="stylesheet" href="../assets/styles/cyphr.css">
+    <link rel="stylesheet" href="../assets/styles/header.css">
     <link rel="stylesheet" href="../assets/styles/footer.css">
+    <link rel="stylesheet" href="../assets/styles/project_shared.css">
+    <link rel="stylesheet" href="../assets/styles/projects/cyphr.css">
 </head>
 
 <body>
+    <header class="site-header">
+        <a class="logo" href="../index.html">nexus</a>
 
-    <div class="container">
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+            aria-controls="site-nav">
+            <span></span>
+            <span></span>
+        </button>
 
-        <header class="site-header">
-            <a href="/" class="brand">
-                <img src="../assets/images/diamond.png" alt="Home">
-            </a>
+        <nav class="site-nav" id="site-nav">
+            <a href="../index.html#work">Work</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </header>
 
-            <nav class="site-nav" id="siteNav">
-                <a href="../index.html">Home</a>
-                <a href="../index.html#about">About</a>
-                <a href="https://nexus.bearblog.dev" target="_blank">Blog</a>
-                <a href="../index.html#contact">Contact</a>
-            </nav>
+    <div class="menu-overlay"></div>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-                <i class="ri-menu-line"></i>
-            </button>
-        </header>
-        <div class="menu-backdrop" id="menuBackdrop"></div>
+    <main id="top">
+        <div class="grid-bg"></div>
 
-        <main class="project-main">
-            <div class="project-back-link-container">
-                <a href="../../index.html#work" class="project-back-link">
-                    <i class="ri-arrow-left-line" aria-hidden="true"></i>
-                    Back to Work
-                </a>
+        <article class="project-page">
+            <a class="project-back" href="../index.html#work">← Back to work</a>
+
+            <header class="project-header">
+                <h1 class="project-title">Cyphr<span>.</span></h1>
+                <p class="project-intro">
+                    Cyphr stores application secrets and API keys behind a small API on Cloudflare Workers, so they
+                    never have
+                    to live in plaintext in a config file or a repo.
+                </p>
+
+                <div class="project-links">
+                    <a class="button button-primary" href="https://cyphr.pages.dev" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+                    <a class="button button-secondary" href="https://github.com/7cyphr" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                </div>
+            </header>
+
+            <figure class="project-image">
+                <img src="../assets/images/cyphr_dashboard.png" alt="Cyphr application interface">
+            </figure>
+
+            <div class="project-info">
+                <div class="project-about">
+                    <h2 class="section-title">How it works</h2>
+
+                    <ul class="project-points">
+                        <li><strong>AES-256-GCM encryption</strong> on every secret before it reaches PostgreSQL.</li>
+                        <li><strong><span class="point-highlight">423ms</span> down to <span class="point-highlight">96ms</span></strong> response latency, using a Cloudflare KV
+                            and V8 isolate memory.</li>
+                        <li><strong><span class="point-highlight">56%</span> higher throughput</strong>, measured with Grafana k6 load tests.</li>
+                        <li><strong>Supabase Auth</strong> for sign-in, so there's no custom login code to maintain.
+                        </li>
+                    </ul>
+
+                    <ul class="project-stack">
+                        <li class="pill">JavaScript</li>
+                        <li class="pill">Hono</li>
+                        <li class="pill">PostgreSQL</li>
+                        <li class="pill">Cloudflare Workers</li>
+                        <li class="pill">Cloudflare KV</li>
+                        <li class="pill">Supabase Auth</li>
+                        <li class="pill">Grafana k6</li>
+                    </ul>
+                </div>
+
+                <figure class="sticker project-sticker" style="--rot: -6deg">
+                    <img src="../assets/images/cyphr-logo.png" alt="">
+                </figure>
             </div>
+        </article>
+    </main>
 
-            <section class="project-hero">
-                <div class="project-hero-content">
-                    <p class="project-label">Serverless API Key Storage</p>
+    <footer class="site-footer">
+        <span>© <span id="year"></span> Nexus - Made with <span class="footer-heart">♥️</span></span>
+        <a href="#top">Back to top ↑</a>
+    </footer>
 
-                    <h1>Cyphr</h1>
-
-                    <p class="project-intro">
-                        A serverless API key storage system built around AES-256-GCM
-                        encryption for securely storing and retrieving sensitive credentials.
-                    </p>
-
-                    <div class="project-actions">
-                        <a href="https://cyphr.pages.dev" target="_blank"
-                            class="project-button project-button-primary btn-primary">
-                            View live
-                            <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
-                        </a>
-
-                        <a href="https://github.com/7Cyphr" target="_blank"
-                            class="project-button project-button-secondary btn-secondary">
-                            View code
-                            <i class="ri-github-line" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <img class="project-hero-image" src="../assets/images/cyphr_dashboard.png"
-                    alt="Pixel Store marketplace">
-            </section>
-
-            <section class="project-section">
-                <div class="section-heading">
-                    <span>01</span>
-                    <h2>How it works</h2>
-                </div>
-
-                <div class="section-content">
-                    <div class="flow-list">
-
-                        <div class="flow-item">
-                            <span class="flow-number">01</span>
-                            <div>
-                                <h3>Store</h3>
-                                <p>
-                                    Submit an API key to Cyphr for secure storage.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flow-item">
-                            <span class="flow-number">02</span>
-                            <div>
-                                <h3>Encrypt</h3>
-                                <p>
-                                    The secret is encrypted using AES-256-GCM before storage.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flow-item">
-                            <span class="flow-number">03</span>
-                            <div>
-                                <h3>Persist</h3>
-                                <p>
-                                    The encrypted value is stored by the serverless application.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flow-item">
-                            <span class="flow-number">04</span>
-                            <div>
-                                <h3>Retrieve</h3>
-                                <p>
-                                    Request the stored credential when it is needed.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flow-item">
-                            <span class="flow-number">05</span>
-                            <div>
-                                <h3>Decrypt</h3>
-                                <p>
-                                    Cyphr decrypts the stored value before returning the secret.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="project-section project-section-divided">
-                <div class="section-heading">
-                    <span>02</span>
-                    <h2>Encryption & Serverless</h2>
-                </div>
-
-                <div class="section-content">
-                    <p>
-                        Cyphr encrypts API keys using AES-256-GCM before storing them,
-                        keeping plaintext credentials out of persistent storage.
-                    </p>
-
-                    <p>
-                        The application is built around a serverless architecture, handling
-                        encryption, storage and retrieval without a traditional long-running server.
-                    </p>
-
-                    <div class="notice">
-                        <i class="ri-lock-line" aria-hidden="true"></i>
-
-                        <p>
-                            API keys are encrypted before they are persisted and only decrypted
-                            when they are explicitly retrieved.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="project-footer">
-                <div>
-                    <p class="project-label">Take a closer look</p>
-                    <h2>Cyphr</h2>
-                </div>
-
-                <div class="project-actions">
-                    <a href="https://cyphr.pages.dev" target="_blank"
-                        class="project-button project-button-primary btn-primary">
-                        View live
-                        <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
-                    </a>
-
-                    <a href="https://github.com/7Cyphr" target="_blank"
-                        class="project-button project-button-secondary btn-secondary">
-                        View code
-                        <i class="ri-github-line" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </section>
-
-        </main>
-
-        <footer class="site-footer"></footer>
-
-    </div>
-
-    <script src="../assets/scripts/root.js"></script>
-    <script src="../assets/scripts/footer.js"></script>
-
+    <script type="module" src="../assets/scripts/project.js"></script>
 </body>
 
 </html>

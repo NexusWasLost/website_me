@@ -1,211 +1,206 @@
-/* hero */
 .hero {
-    min-height: calc(100vh - 150px);
-    min-height: calc(100dvh - 150px);
+    position: relative;
+    min-height: 100vh;
+    padding-block: 0.5rem 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px 0 120px;
 }
 
-.hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 34px;
-    color: var(--text-dim);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-}
-
-.hero-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text);
-}
-
-.hero-status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--tile-accent);
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.55);
-}
-
-.hero-location {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.hero-location i {
-    font-size: 0.9rem;
-}
-
-.hero h1 {
-    max-width: 1050px;
-    font-size: clamp(4rem, 9vw, 8.5rem);
-    font-weight: 700;
-    line-height: 0.9;
-    letter-spacing: -0.065em;
-}
-
-.hero h1 span {
-    display: block;
-    color: var(--text-dim);
-    font-size: 0.85em;
-}
-
-.hero-bottom {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 48px;
-}
-
-.hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.hero-note {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    color: var(--text-dim);
-    font-family: var(--font-mono);
+.eyebrow {
+    font-family: var(--mono);
     font-size: 0.8rem;
-    text-align: right;
-    padding-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--lime);
+    margin-bottom: 1.5rem;
 }
 
-.hero-button {
-    padding: 14px 22px;
+h1 {
+    font-weight: 800;
+    font-size: 10rem;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
 }
 
-/* hero responsive */
-@media (max-width: 1296px) and (min-width: 801px) {
-    .hero h1 {
-        font-size: clamp(5rem, 10vw, 8.5rem);
-    }
-
-    .hero h1 span {
-        font-size: 1em;
-    }
+h1 span {
+    color: var(--lime);
 }
 
-@media (max-width: 1100px) {
+.lead {
+    max-width: 26rem;
+    margin-top: 2rem;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.cta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    margin-top: 2.5rem;
+}
+
+/* Stickers */
+.sticker {
+    position: absolute;
+    z-index: 5;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    transform: rotate(var(--rot));
+    transition: transform 0.25s ease;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.sticker:hover {
+    transform: rotate(calc(var(--rot) + 5deg)) scale(1.06);
+}
+
+.sticker.dragging {
+    cursor: grabbing;
+    transform: rotate(var(--rot)) scale(1.12);
+    transition: none;
+}
+
+.sticker-status {
+    left: 56%;
+    top: 8%;
+    padding: 1.1rem 1.7rem;
+    background: var(--orange);
+    color: var(--bg);
+    border-radius: 14px;
+    font-size: 4rem;
+    letter-spacing: -0.03em;
+}
+
+.sticker-status small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+}
+
+.sticker-braces {
+    left: 78%;
+    top: 30%;
+    width: 180px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    background: var(--lime);
+    color: var(--bg);
+    border-radius: 50%;
+    font-size: 4rem;
+}
+
+.sticker-lang {
+    left: 52%;
+    top: 50%;
+    padding: 0.9rem 1.8rem;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 2rem;
+}
+
+.sticker-deps {
+    left: 68%;
+    top: 65%;
+    width: 190px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    background: var(--pink);
+    color: var(--bg);
+    border-radius: 62% 38% 55% 45% / 48% 58% 42% 52%;
+    font-size: 2.1rem;
+    text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
     .hero {
         min-height: auto;
-        padding: 30px 0 110px;
+        padding-block: 4.5rem 2rem;
+        justify-content: flex-start;
+    }
+
+    h1 {
+        font-size: 7rem;
+    }
+
+    .sticker-status {
+        left: 58%;
+        top: 8%;
+        font-size: 3rem;
+    }
+
+    .sticker-braces {
+        left: 82%;
+        top: 32%;
+        width: 140px;
+        font-size: 3rem;
+    }
+
+    .sticker-lang {
+        top: 60%;
+        font-size: 1.6rem;
+    }
+
+    .sticker-deps {
+        top: 75%;
+        width: 150px;
+        font-size: 1.7rem;
     }
 }
 
-@media (max-width: 1000px) {
+/* Mobile */
+@media (max-width: 720px) {
     .hero {
         min-height: auto;
-        padding: 30px 0 80px;
-    }
-}
-
-@media (max-width: 800px) {
-    .hero {
-        padding: 0 0 60px;
+        padding: 2rem 0 3rem;
+        justify-content: flex-start;
     }
 
-    .hero-meta {
-        margin-bottom: 28px;
+    h1 {
+        font-size: 6rem;
     }
 
-    .hero h1 {
-        max-width: 100%;
-        font-size: clamp(4.5rem, 15vw, 7rem);
-        line-height: 0.88;
+    .lead {
+        max-width: 28rem;
+        font-size: 1rem;
     }
 
-    .hero h1 span {
-        max-width: 11ch;
-        font-size: 0.9em;
-        line-height: 0.95;
-    }
-
-    .hero-bottom {
-        align-items: flex-start;
-        flex-direction: column;
-        margin-top: 36px;
-    }
-
-    .hero-note {
+    .sticker {
         display: none;
     }
+}
 
-    .hero-button {
-        padding: 13px 18px;
+/* Small mobile */
+@media (max-width: 520px) {
+    h1 {
+        font-size: 4rem;
     }
 }
 
-@media (max-width: 600px) {
-    .hero {
-        padding: 0 0 45px;
-    }
-
-    .hero-meta {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
-        margin-bottom: 24px;
-    }
-
-    .hero h1 {
-        font-size: clamp(4rem, 17vw, 6rem);
-    }
-
-    .hero h1 span {
-        max-width: 10ch;
-        font-size: 0.9em;
-    }
-
-    .hero-actions {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .hero-button {
-        padding: 9px 13px;
-        font-size: 0.8rem;
-        gap: 7px;
-    }
-
-    .hero-button,
-    .hero-button * {
-        font-size: 0.8rem;
-    }
-}
-
+/* Extra small mobile */
 @media (max-width: 420px) {
-    .hero {
-        padding-bottom: 35px;
+    h1 {
+        font-size: 3.2rem;
     }
 
-    .hero h1 {
-        font-size: clamp(3.6rem, 17vw, 5rem);
+    .cta-row {
+        gap: 1.5rem;
     }
 
-    .hero h1 span {
-        max-width: 9ch;
-    }
-
-    .hero-bottom {
-        margin-top: 30px;
-    }
-
-    .hero-actions {
-        gap: 8px;
-    }
-
-    .hero-button {
-        padding: 8px 12px;
+    .button-primary {
+        padding: 0.85rem 1.5rem;
     }
 }

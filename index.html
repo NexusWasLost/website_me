@@ -4,279 +4,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Aritra - Backend Engineer</title>
+    <meta name="description" content="Aritra's website, a backend developer building with Node.js and C/C++.">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap"
         rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/shared.css">
-    <link rel="stylesheet" href="assets/styles/nav.css">
+    <link rel="stylesheet" href="assets/styles/header.css">
     <link rel="stylesheet" href="assets/styles/hero.css">
-    <link rel="stylesheet" href="assets/styles/about.css">
     <link rel="stylesheet" href="assets/styles/work.css">
+    <link rel="stylesheet" href="assets/styles/about.css">
     <link rel="stylesheet" href="assets/styles/contact.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
-    <title>Aritra</title>
 </head>
 
 <body>
+    <header class="site-header">
+        <a class="logo" href="#top">aritra</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+            aria-controls="site-nav">
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="menu-overlay"></div>
 
-    <div class="container">
+    <main id="top">
+        <div class="grid-bg"></div>
 
-        <header class="site-header">
-            <a href="/" class="brand">
-                <img src="assets/images/diamond.png" alt="Home">
-            </a>
+        <section class="hero">
+            <p class="eyebrow">Backend Engineer</p>
 
-            <nav class="site-nav" id="siteNav">
-                <a href="index.html">Home</a>
-                <a href="#about">About</a>
-                <a href="#work">Work</a>
-                <a href="https://nexus.bearblog.dev" target="_blank">Blog</a>
-                <a href="#contact">Contact</a>
-            </nav>
+            <h1>Hi<br>I am<br><span>Aritra.</span></h1>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-                <i class="ri-menu-line"></i>
-            </button>
-        </header>
-        <div class="menu-backdrop" id="menuBackdrop"></div>
+            <p class="lead">I build APIs, SaaS backends and low-level C libraries. Lean, direct, nothing I do not need.
+            </p>
 
-        <main>
+            <div class="cta-row">
+                <a class="button button-primary" href="#contact">Say hello</a>
+                <a class="text-link" href="#work">See the work ↓</a>
+            </div>
 
-            <section class="hero">
+            <div class="sticker sticker-status" style="--rot: -6deg">
+                <small>status</small>
+                200 OK
+            </div>
 
-                <div class="hero-meta">
-                    <span class="hero-status">
-                        <span class="hero-status-dot"></span>
-                        Backend Engineer
-                    </span>
+            <div class="sticker sticker-braces" style="--rot: 8deg">{ }</div>
+            <div class="sticker sticker-lang" style="--rot: -4deg">C / C++</div>
+            <div class="sticker sticker-deps" style="--rot: 10deg">0 deps</div>
+        </section>
 
-                    <span class="hero-location">
-                        <i class="ri-map-pin-line" aria-hidden="true"></i>
-                        India
-                    </span>
+        <section id="work" class="section">
+            <h2 class="section-title">(01) Work</h2>
+            <div id="project-list"></div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title">(02) About</h2>
+
+            <p class="statement">I like code that does exactly what it says and nothing more. Minimal dependencies,
+                direct structure, as little indirection as the problem allows.</p>
+
+            <ul class="chips">
+                <li class="pill">Node.js</li>
+                <li class="pill">Express.js</li>
+                <li class="pill">MongoDB</li>
+                <li class="pill">PostgreSQL</li>
+                <li class="pill">JavaScript</li>
+                <li class="pill">C/C++</li>
+            </ul>
+        </section>
+
+
+
+        <section id="contact" class="section">
+            <h2 class="section-title">(03) Contact</h2>
+
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
+
+                <input type="hidden" name="access_key" value="f83732dd-8a98-44cc-803f-33e40ec5c365">
+                <input type="hidden" name="subject" value="New message from website">
+                <input type="checkbox" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off">
+
+                <h3 class="contact-heading">
+                    Let's start a conversation<span> !</span>
+                </h3>
+
+                <p class="contact-description">
+                    Got a project, an opportunity, or just something interesting to discuss?
+                    My inbox is open.
+                </p>
+
+                <div class="contact-fields">
+                    <label class="contact-field">
+                        <span>YOUR NAME</span>
+                        <input type="text" name="name" placeholder="What should I call you?" required>
+                    </label>
+
+                    <label class="contact-field">
+                        <span>YOUR EMAIL</span>
+                        <input type="email" name="email" placeholder="Where can I reach you?" required>
+                    </label>
+
+                    <label class="contact-field contact-field-message">
+                        <span>YOUR MESSAGE</span>
+                        <textarea name="message" placeholder="Tell me what's on your mind..." rows="3"
+                            required></textarea>
+                    </label>
                 </div>
 
-                <h1>
-                    Hi, I am Aritra.
-                    <span>
-                        I build backend systems.
-                    </span>
-                </h1>
+                <button class="button button-primary" type="submit">
+                    Send message <span>↗</span>
+                </button>
+                <p class="form-status" aria-live="polite"></p>
+            </form>
 
-                <div class="hero-bottom">
-                    <div class="hero-actions">
-                        <a href="#work" class="hero-button hero-button-primary btn-primary">
-                            Explore my work
-                            <i class="ri-arrow-down-line" aria-hidden="true"></i>
-                        </a>
-
-                        <a href="https://github.com/NexusWasLost" target="_blank" rel="noopener noreferrer"
-                            class="hero-button hero-button-secondary btn-secondary">
-                            GitHub
-                            <i class="ri-github-line" aria-hidden="true"></i>
-                        </a>
-                    </div>
-
-                    <div class="hero-note">
-                        <span>APIs · Systems · Software</span>
-                    </div>
+            <div class="social">
+                <span class="social-label">LINKS</span>
+                <div class="social-links">
+                    <a href="https://github.com/NexusWasLost" target="_blank" rel="noopener noreferrer">GitHub
+                        <span>↗</span></a>
+                    <a href="https://linkedin.com/in/aritra200" target="_blank"
+                        rel="noopener noreferrer">LinkedIn<span>↗</span></a>
+                    <a href="https://nexus.bearblog.dev" target="_blank" rel="noopener noreferrer">Blog
+                        <span>↗</span></a>
                 </div>
+            </div>
+        </section>
 
-            </section>
+    </main>
 
+    <footer class="site-footer">
+        <span>© <span id="year"></span> Nexus - Made with <span class="footer-heart">♥️</span></span>
+        <a href="#top">Back to top ↑</a>
+    </footer>
 
-            <section class="statement" id="about">
-
-                <div class="section-index">
-                    <span>01</span>
-                    <span>About</span>
-                </div>
-
-                <div class="statement-content">
-                    <p>
-                        I'm a backend engineer who builds APIs, services, and full-stack applications, working with
-                        databases, authentication, payments, and other server-side systems to build complete software.
-                    </p>
-                    <div class="about-stack">
-                        <span class="about-stack-label">I primarily work with</span>
-
-                        <div class="about-stack-list">
-                            <span class="pill">Node.js</span>
-                            <span class="pill">Express.js</span>
-                            <span class="pill">MongoDB</span>
-                            <span class="pill">PostgreSQL</span>
-                            <span class="pill">JavaScript</span>
-                            <span class="pill">C/C++</span>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
-
-            <section class="work-section" id="work">
-                <div class="section-heading">
-                    <span class="section-index"><span>02</span></span>
-                    <h2>Selected Work</h2>
-                </div>
-
-                <div class="project-list">
-
-                    <article class="project-item">
-                        <div class="project-marker">
-                            <div class="project-logo">
-                                <img src="assets/images/pxstore.png" alt="Pixel Store">
-                            </div>
-                        </div>
-
-                        <div class="project-content">
-                            <div class="project-header">
-                                <div>
-                                    <h3>PIXEL STORE</h3>
-                                    <p class="project-type">Marketplace & payments</p>
-                                </div>
-                            </div>
-
-                            <p class="project-description">
-                                A mini marketplace demonstrating a complete Razorpay payment flow,
-                                persistent cart, server-side verification and invoice generation.
-                            </p>
-
-                            <div class="project-stack">
-                                <span class="pill">HTML</span>
-                                <span class="pill">CSS</span>
-                                <span class="pill">JavaScript</span>
-                                <span class="pill">Node.js</span>
-                                <span class="pill">Express.js</span>
-                                <span class="pill">MongoDB</span>
-                                <span class="pill">Razorpay</span>
-                            </div>
-
-                            <a href="projects/pixelstore.html" class="project-link">
-                                View project
-                                <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project-item">
-                        <div class="project-marker">
-                            <div class="project-logo">
-                                <img src="assets/images/cyphr.png" alt="Cyphr">
-                            </div>
-                        </div>
-
-                        <div class="project-content">
-                            <div class="project-header">
-                                <div>
-                                    <h3>CYPHR</h3>
-                                    <p class="project-type">Encryption & storage</p>
-                                </div>
-                            </div>
-
-                            <p class="project-description">
-                                A secure tool for storing and managing encrypted API keys
-                                without exposing sensitive credentials.
-                            </p>
-
-                            <div class="project-stack">
-                                <span class="pill">HTML</span>
-                                <span class="pill">CSS</span>
-                                <span class="pill">Bulma</span>
-                                <span class="pill">JavaScript</span>
-                                <span class="pill">Supabase Auth</span>
-                                <span class="pill">Node.js</span>
-                                <span class="pill">Hono</span>
-                                <span class="pill">PostgreSQL</span>
-                            </div>
-
-                            <a href="projects/cyphr.html" class="project-link">
-                                View project
-                                <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project-item">
-                        <div class="project-marker">
-                            <div class="project-logo">
-                                <img src="assets/images/lumi.png" alt="Pixel Store">
-                            </div>
-                        </div>
-
-                        <div class="project-content">
-                            <div class="project-header">
-                                <div>
-                                    <h3>LUMI</h3>
-                                    <p class="project-type">System & hardware insight</p>
-                                </div>
-                            </div>
-
-                            <p class="project-description">
-                                A lightweight C library for fetching system information on Windows through a clean,
-                                minimal API.
-                            </p>
-
-                            <div class="project-stack">
-                                <span class="pill">C</span>
-                                <span class="pill">CMake</span>
-                                <span class="pill">WinAPI</span>
-                                <span class="pill">GCC</span>
-                            </div>
-
-                            <a href="projects/lumi.html" class="project-link">
-                                View project
-                                <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                </div>
-            </section>
-
-            <section class="contact-section" id="contact">
-                <div class="section-heading">
-                    <span class="section-index"><span>03</span></span>
-                    <span>Have something to say?</span>
-                </div>
-
-                <div class="contact-content">
-                    <h2>
-                        Let's talk.
-                    </h2>
-
-                    <p>
-                        Have a project, opportunity, or just want to say hi?
-                    </p>
-
-                    <a href="/contact.html" class="contact-button btn-primary">
-                        Get in touch
-                        <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
-                    </a>
-                </div>
-
-            </section>
-
-        </main>
-
-
-        <footer class="site-footer"></footer>
-
-    </div>
-
-    <script src="assets/scripts/root.js"></script>
-    <script src="assets/scripts/footer.js"></script>
-
+    <script type="module" src="assets/scripts/home.js"></script>
+    <script type="module" src="assets/scripts/contact.js"></script>
 </body>
 
 </html>

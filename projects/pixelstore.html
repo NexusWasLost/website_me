@@ -4,207 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../assets/favicon/site.webmanifest">
-
-    <title>Pixel Store | Aritra</title>
+    <title>Pixel Store — Aritra</title>
+    <meta name="description" content="Pixel Store - A demo storefront to showcase Razorpay payment flow and invoice generation.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap"
         rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
-
     <link rel="stylesheet" href="../assets/styles/shared.css">
-    <link rel="stylesheet" href="../assets/styles/nav.css">
-    <link rel="stylesheet" href="../assets/styles/project_shared.css">
-    <link rel="stylesheet" href="../assets/styles/pixel_store.css">
+    <link rel="stylesheet" href="../assets/styles/header.css">
     <link rel="stylesheet" href="../assets/styles/footer.css">
+    <link rel="stylesheet" href="../assets/styles/project_shared.css">
+    <link rel="stylesheet" href="../assets/styles/projects/cyphr.css">
 </head>
 
 <body>
+    <header class="site-header">
+        <a class="logo" href="../index.html">nexus</a>
 
-    <div class="container">
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+            aria-controls="site-nav">
+            <span></span>
+            <span></span>
+        </button>
 
-        <header class="site-header">
-            <a href="/" class="brand">
-                <img src="../assets/images/diamond.png" alt="Home">
-            </a>
+        <nav class="site-nav" id="site-nav">
+            <a href="../index.html#work">Work</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </header>
 
-            <nav class="site-nav" id="siteNav">
-                <a href="../index.html">Home</a>
-                <a href="../index.html#about">About</a>
-                <a href="https://nexus.bearblog.dev" target="_blank">Blog</a>
-                <a href="../index.html#contact">Contact</a>
-            </nav>
+    <div class="menu-overlay"></div>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-                <i class="ri-menu-line"></i>
-            </button>
-        </header>
-        <div class="menu-backdrop" id="menuBackdrop"></div>
+    <main id="top">
+        <div class="grid-bg"></div>
 
-        <main class="project-main">
-            <div class="project-back-link-container">
-                <a href="../../index.html#work" class="project-back-link">
-                    <i class="ri-arrow-left-line" aria-hidden="true"></i>
-                    Back to Work
-                </a>
+        <article class="project-page">
+            <a class="project-back" href="../index.html#work">← Back to work</a>
+
+            <header class="project-header">
+                <h1 class="project-title">Pixel Store<span>.</span></h1>
+                <p class="project-intro">
+                    A demo storefront built to show a complete Razorpay payment flow, from checkout to an invoice generated on the spot.
+                </p>
+
+                <div class="project-links">
+                    <a class="button button-primary" href="https://pixelstore.pages.dev" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+                    <a class="button button-secondary" href="https://github.com/1pixelstore/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                </div>
+            </header>
+
+            <figure class="project-image">
+                <img src="../assets/images/pxstore_marketplace.png" alt="Cyphr application interface">
+            </figure>
+
+            <div class="project-info">
+                <div class="project-about">
+                    <h2 class="section-title">How it works</h2>
+
+                    <ul class="project-points">
+                        <li><strong>Full Razorpay checkout flow</strong>, from order to confirmed payment.</li>
+                        <li><strong>Webhook-driven updates</strong> keep order status in sync, even if the browser
+                            closes.</li>
+                        <li><strong>Invoices on demand</strong>, rendered from a server-side Handlebars template.</li>
+                        <li><strong>Built from the database</strong>, so every invoice matches the stored order.</li>
+                    </ul>
+
+                    <ul class="project-stack">
+                        <li class="pill">JavaScript</li>
+                        <li class="pill">Node.js</li>
+                        <li class="pill">Express.js</li>
+                        <li class="pill">MongoDB</li>
+                        <li class="pill">Vercel</li>
+                    </ul>
+                </div>
+
+                <figure class="sticker project-sticker" style="--rot: -6deg">
+                    <img src="../assets/images/pxstore-logo.png" alt="">
+                </figure>
             </div>
+        </article>
+    </main>
 
-            <section class="project-hero">
-                <div class="project-hero-content">
-                    <p class="project-label">Marketplace & Invoice System</p>
+    <footer class="site-footer">
+        <span>© <span id="year"></span> Nexus - Made with <span class="footer-heart">♥️</span></span>
+        <a href="#top">Back to top ↑</a>
+    </footer>
 
-                    <h1>Pixel Store</h1>
-
-                    <p class="project-intro">
-                        A mini marketplace showcasing a complete checkout flow with
-                        Razorpay payments, server-side verification and invoice generation.
-                    </p>
-
-                    <div class="project-actions">
-                        <a href="https://pixelstore.pages.dev/" target="_blank" class="project-button project-button-primary btn-primary">
-                            View live
-                            <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
-                        </a>
-
-                        <a href="https://github.com/1pixelstore" target="_blank" class="project-button project-button-secondary btn-secondary">
-                            View code
-                            <i class="ri-github-line" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <img class="project-hero-image" src="../assets/images/pxstore_marketplace.png" alt="Pixel Store marketplace">
-            </section>
-
-            <section class="project-section how-it-works">
-                <div class="section-heading">
-                    <span>01</span>
-                    <h2>How it works</h2>
-                </div>
-
-                <div class="section-content">
-                    <div class="flow-list">
-
-                        <div class="flow-item">
-                            <span class="flow-number">01</span>
-                            <div>
-                                <h3>Browse</h3>
-                                <p>
-                                    Browse products and add items to cart.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flow-item">
-                            <span class="flow-number">02</span>
-                            <div>
-                                <h3>Checkout</h3>
-                                <p>
-                                    Enter customer details and create a payment order.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flow-item">
-                            <span class="flow-number">03</span>
-                            <div>
-                                <h3>Payment</h3>
-                                <p>
-                                    Razorpay handles the payment interaction.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flow-item">
-                            <span class="flow-number">04</span>
-                            <div>
-                                <h3>Verify</h3>
-                                <p>
-                                    The server verifies the payment before completing the order.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flow-item">
-                            <span class="flow-number">05</span>
-                            <div>
-                                <h3>Invoice</h3>
-                                <p>
-                                    A print-ready invoice is generated from the completed order.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="project-section payment-n-inv">
-                <div class="section-heading">
-                    <span>02</span>
-                    <h2>Payments & Invoice</h2>
-                </div>
-
-                <div class="section-content">
-                    <p>
-                        The server creates the payment order while the client opens
-                        Razorpay Checkout. Payment details are verified server-side
-                        before the order is marked as paid.
-                    </p>
-
-                    <p>
-                        Once payment is confirmed, Pixel Store generates its own
-                        print-ready invoice from the completed order, including
-                        purchased items, pricing and payment details.
-                    </p>
-
-                    <div class="notice">
-                        <i class="ri-information-line" aria-hidden="true"></i>
-
-                        <p>
-                            Pixel Store uses Razorpay's test environment only.
-                            No real money is involved.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="project-footer">
-                <div>
-                    <p class="project-label">Take a closer look</p>
-                    <h2>Pixel Store</h2>
-                </div>
-
-                <div class="project-actions">
-                    <a href="https://pixelstore.pages.dev" target="_blank" class="project-button project-button-primary btn-primary">
-                        View live
-                        <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
-                    </a>
-
-                    <a href="https://github.com/1pixelstore" target="_blank" class="project-button project-button-secondary btn-secondary">
-                        View code
-                        <i class="ri-github-line" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </section>
-
-        </main>
-
-        <footer class="site-footer"></footer>
-
-    </div>
-
-    <script src="../assets/scripts/root.js"></script>
-    <script src="../assets/scripts/footer.js"></script>
-
+    <script type="module" src="../assets/scripts/project.js"></script>
 </body>
 
 </html>
