@@ -53,7 +53,7 @@
     margin: 3.5rem auto 0;
 }
 
-.project-image img {
+.project-image img, .project-image video {
     display: block;
     width: 100%;
     height: auto;
